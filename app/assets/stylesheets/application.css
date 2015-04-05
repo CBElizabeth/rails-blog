@@ -14,5 +14,5 @@
  *= require_self
  */
 
-@import '_normalize';
+@import 'normalize';
 @import 'custom_css';
