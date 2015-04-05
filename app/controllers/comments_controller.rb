@@ -7,6 +7,8 @@ class CommentsController < ApplicationController
     redirect_to post_path(@post)
   end
 
+  before_filter :authorize
+
   def destroy
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])

@@ -3,6 +3,12 @@ class PostsController < ApplicationController
     @posts = Post.all.order('created_at DESC')
   end
 
+  def show
+    @post = Post.find(params[:id])
+  end
+
+  before_filter :authorize, :except => [:index, :show]
+
   def new
     @post = Post.new
   end
@@ -14,10 +20,6 @@ class PostsController < ApplicationController
     else
       render 'new'
     end
-  end
-
-  def show
-    @post = Post.find(params[:id])
   end
 
   def edit
